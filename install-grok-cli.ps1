@@ -28,10 +28,10 @@ npm install -g @vibe-kit/grok-cli
 # Prompt for xAI API key and set it as a persistent user environment variable
 $apiKey = Read-Host "Enter your xAI API key (starts with 'xai_') "
 if ($apiKey) {
-    [Environment]::SetEnvironmentVariable("XAI_API_KEY", $apiKey, "User")
+    [Environment]::SetEnvironmentVariable("GROK_API_KEY", $apiKey, "User")
     Write-Host "API key successfully set as persistent environment variable!" -ForegroundColor Green
 } else {
-    Write-Host "No key provided. You can set it later with: [Environment]::SetEnvironmentVariable('XAI_API_KEY', 'your-key', 'User')" -ForegroundColor Yellow
+    Write-Host "No key provided. You can set it later with: [Environment]::SetEnvironmentVariable('GROK_API_KEY', 'your-key', 'User')" -ForegroundColor Yellow
 }
 
 # Refresh PATH for the current session
@@ -42,7 +42,7 @@ $grokInstalled = Get-Command grok -ErrorAction SilentlyContinue
 if ($grokInstalled) {
     Write-Host "Installation successful!" -ForegroundColor Green
     Write-Host "IMPORTANT: Restart PowerShell (close and reopen a new window) before running 'grok' for the first time." -ForegroundColor Yellow
-    Write-Host "This ensures the PATH and XAI_API_KEY environment variable are fully loaded." -ForegroundColor Yellow
+    Write-Host "This ensures the PATH and GROK_API_KEY environment variable are fully loaded." -ForegroundColor Yellow
     Write-Host "After restarting, simply type 'grok' to start the agent." -ForegroundColor Green
     Write-Host "Reminder: Purchase API credits at https://console.x.ai if needed (otherwise you may get a 403 'no credits' error)." -ForegroundColor Yellow
 } else {
